@@ -26,3 +26,14 @@ src/ ├── app/ │ ├── add-action/ │ │ ├── add-action.compo
 2. **npm install**
 3. **ng serve**
 4. **Open http://localhost:4200 in your browser.**
+5.  **Testing with Postman**
+   Open Postman
+   Import the API endpoints
+   Test the following endpoints:
+   
+   GET http://localhost:3000/actions
+   POST http://localhost:3000/actions
+   DELETE http://localhost:3000/actions/:id
+
+
+  
