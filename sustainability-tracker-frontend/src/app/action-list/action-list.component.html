@@ -1,5 +1,20 @@
-<ul>
-  <li *ngFor="let action of actions; let i = index">
-    {{ action }} <button (click)="removeAction(i)">Remove</button>
-  </li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Action</th>
+      <th>Date</th>
+      <th>Points</th>
+      <th>Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let action of actions">
+      <td>{{ action.id }}</td>
+      <td>{{ action.action }}</td>
+      <td>{{ action.date }}</td>
+      <td>{{ action.points }}</td>
+      <td><button (click)="removeAction(action.id)">Remove</button></td>
+    </tr>
+  </tbody>
+</table>

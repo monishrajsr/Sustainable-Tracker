@@ -1,18 +1,26 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Define a TypeScript interface for actions
+interface SustainabilityAction {
+  id: number;
+  action: string;
+  date: string;
+  points: number;
+}
+
 @Component({
-  standalone: true,
   selector: 'app-action-list',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './action-list.component.html',
-  styleUrls: ['./action-list.component.css'],
-  imports: [CommonModule]
+  styleUrls: ['./action-list.component.css']
 })
 export class ActionListComponent {
-  @Input() actions: string[] = []; // ✅ Accept actions list
-  @Output() remove = new EventEmitter<number>(); // ✅ Emit index
+  @Input() actions: SustainabilityAction[] = [];  // Use the correct data type
+  @Output() remove = new EventEmitter<number>();  // Emit ID when removing
 
-  removeAction(index: number) {
-    this.remove.emit(index); // ✅ Emit the index
+  removeAction(id: number) {
+    this.remove.emit(id);  // Emit the ID of the action to be removed
   }
 }

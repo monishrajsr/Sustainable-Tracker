@@ -1,5 +1,2 @@
-<h1>Welcome to Sustainability Tracker</h1>
-
-<app-add-action (actionAdded)="addNewAction($event)"></app-add-action>
-
+<app-add-action (add)="addAction($event)"></app-add-action>
 <app-action-list [actions]="actions" (remove)="removeAction($event)"></app-action-list>

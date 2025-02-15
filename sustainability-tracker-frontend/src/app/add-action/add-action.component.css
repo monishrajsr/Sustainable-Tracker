@@ -1,0 +1,14 @@
+form {
+    display: flex;
+    gap: 10px;
+  }
+  input {
+    padding: 5px;
+  }
+  button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+  }
+  

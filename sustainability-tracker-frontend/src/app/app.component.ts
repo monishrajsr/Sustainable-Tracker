@@ -1,22 +1,33 @@
 import { Component } from '@angular/core';
 import { AddActionComponent } from './add-action/add-action.component';
 import { ActionListComponent } from './action-list/action-list.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+// Define the SustainabilityAction interface
+interface SustainabilityAction {
+  id: number;
+  action: string;
+  date: string;
+  points: number;
+}
 
 @Component({
-  standalone: true,
   selector: 'app-root',
+  standalone: true,
+  imports: [AddActionComponent, ActionListComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  imports: [AddActionComponent, ActionListComponent]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  actions: string[] = ['Recycle', 'Save Water'];
+  actions: SustainabilityAction[] = [];
 
-  addNewAction(action: string) {
-    this.actions.push(action); // ✅ Add new action to list
+  addAction(action: SustainabilityAction) {
+    console.log('Adding action:', action); // Debugging log
+    this.actions.push(action);
   }
 
-  removeAction(index: number) {
-    this.actions.splice(index, 1);
+  removeAction(id: number) {
+    this.actions = this.actions.filter(action => action.id !== id);
   }
 }
