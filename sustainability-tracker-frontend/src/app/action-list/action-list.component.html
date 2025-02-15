@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let action of actions; let i = index">
+    {{ action }} <button (click)="removeAction(i)">Remove</button>
+  </li>
+</ul>
